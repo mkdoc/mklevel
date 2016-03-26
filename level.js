@@ -4,8 +4,41 @@ var through = require('through3')
 /**
  *  Increases and decreases heading levels.
  *
+ *  Takes the integer values in the `levels` option and applies them by index 
+ *  to the headings in the stream.
+ *
+ *  The level modifier for level one headings is at index zero in the list.
+ *
+ *  If a level modifier would take a heading level beyond the permitted 1-6 
+ *  range the value is clamped, so the following is a noop:
+ *
+ *  ```javascript
+ *  {levels: [-1]}
+ *  ```
+ *
+ *  Because level one headings cannot be modified below one.
+ *
+ *  To convert all level one headings to level two:
+ *
+ *  ```javascript
+ *  {levels: [1]}
+ *  ```
+ *
+ *  To increment headings 1-4 by one:
+ *
+ *  ```javascript
+ *  {levels: [1,1,1,1]}
+ *  ```
+ *
+ *  To decrement all heading levels (except level 1) by one:
+ *
+ *  ```javascript
+ *  {levels: [0,-1,-1,-1,-1,-1]}
+ *  ```
+ *
  *  @constructor Level
  *  @param {Object} [opts] stream options.
+ *  @option {Array} levels list of integer level modifiers.
  */
 function Level(opts) {
   opts = opts || {};

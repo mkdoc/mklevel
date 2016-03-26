@@ -4,6 +4,8 @@ var ast = require('mkast')
 /**
  *  Gets the heading level stream.
  *
+ *  See [Level](#level-1) for additional options.
+ *
  *  @function level
  *  @param {Object} [opts] processing options.
  *  @param {Function} [cb] callback function.

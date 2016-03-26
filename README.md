@@ -64,6 +64,8 @@ level([opts][, cb])
 
 Gets the heading level stream.
 
+See [Level](#level-1) for additional options.
+
 Returns an output stream.
 
 * `opts` Object processing options.
@@ -82,7 +84,43 @@ new Level([opts])
 
 Increases and decreases heading levels.
 
+Takes the integer values in the `levels` option and applies them by index
+to the headings in the stream.
+
+The level modifier for level one headings is at index zero in the list.
+
+If a level modifier would take a heading level beyond the permitted 1-6
+range the value is clamped, so the following is a noop:
+
+```javascript
+{levels: [-1]}
+```
+
+Because level one headings cannot be modified below one.
+
+To convert all level one headings to level two:
+
+```javascript
+{levels: [1]}
+```
+
+To increment headings 1-4 by one:
+
+```javascript
+{levels: [1,1,1,1]}
+```
+
+To decrement all heading levels (except level 1) by one:
+
+```javascript
+{levels: [0,-1,-1,-1,-1,-1]}
+```
+
 * `opts` Object stream options.
+
+#### Options
+
+* `levels` Array list of integer level modifiers.
 
 ## License
 
@@ -93,7 +131,6 @@ MIT
 Created by [mkdoc](https://github.com/mkdoc/mkdoc) on March 26, 2016
 
 [mkdoc]: https://github.com/mkdoc/mkdoc
-[mkparse]: https://github.com/mkdoc/mkparse
 [commonmark]: http://commonmark.org
 [jshint]: http://jshint.com
 [jscs]: http://jscs.info
