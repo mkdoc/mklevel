@@ -30,19 +30,27 @@ var through = require('through3')
  *  {levels: [1,1,1,1]}
  *  ```
  *
- *  To decrement all heading levels (except level 1) by one:
+ *  To decrement all heading levels (except level 1 which cannot be decrements) 
+ *  by one:
  *
  *  ```javascript
- *  {levels: [0,-1,-1,-1,-1,-1]}
+ *  {all: -1}
  *  ```
  *
  *  @constructor Level
  *  @param {Object} [opts] stream options.
  *  @option {Array} levels list of integer level modifiers.
+ *  @option {Number} all use this value for all levels.
  */
 function Level(opts) {
   opts = opts || {};
   opts.levels = opts.levels || [];
+
+  if(typeof opts.all === 'number') {
+    for(var i = 0;i < 6;i++) {
+      opts.levels[i] = opts.all;
+    } 
+  }
 
   // coerce to integers and handle NaN
   this.levels = opts.levels.map(function(num) {

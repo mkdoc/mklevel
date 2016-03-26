@@ -1,8 +1,7 @@
 var expect = require('chai').expect
   , fs = require('fs')
-  , mkast = require('mkast')
-  , Node = mkast.Node
-  , parser = new mkast.Parser()
+  , ast = require('mkast')
+  , Node = ast.Node
   , mklevel = require('../../index')
   , Level = require('../../level')
   , utils = require('../util');
@@ -57,13 +56,13 @@ describe('mklevel:', function() {
   it('should modify heading levels', function(done) {
     var source = 'test/fixtures/levels.md'
       , target = 'target/levels.json.log'
-      , data = parser.parse('' + fs.readFileSync(source))
+      , data = ast.parse('' + fs.readFileSync(source))
 
     // mock file for correct relative path
     // mkcat normally injects this info
     data.file = source;
 
-    var input = mkast.serialize(data)
+    var input = ast.serialize(data)
       , output = fs.createWriteStream(target)
       , opts = {
           input: input,
@@ -83,13 +82,13 @@ describe('mklevel:', function() {
   it('should modify heading levels w/ callback', function(done) {
     var source = 'test/fixtures/levels.md'
       , target = 'target/levels.json.log'
-      , data = parser.parse('' + fs.readFileSync(source))
+      , data = ast.parse('' + fs.readFileSync(source))
 
     // mock file for correct relative path
     // mkcat normally injects this info
     data.file = source;
 
-    var input = mkast.serialize(data)
+    var input = ast.serialize(data)
       , output = fs.createWriteStream(target)
       , opts = {
           input: input,

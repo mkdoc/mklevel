@@ -110,10 +110,11 @@ To increment headings 1-4 by one:
 {levels: [1,1,1,1]}
 ```
 
-To decrement all heading levels (except level 1) by one:
+To decrement all heading levels (except level 1 which cannot be decrements)
+by one:
 
 ```javascript
-{levels: [0,-1,-1,-1,-1,-1]}
+{all: -1}
 ```
 
 * `opts` Object stream options.
@@ -121,6 +122,7 @@ To decrement all heading levels (except level 1) by one:
 #### Options
 
 * `levels` Array list of integer level modifiers.
+* `all` Number use this value for all levels.
 
 ## License
 
