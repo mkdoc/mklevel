@@ -1,4 +1,4 @@
-# Level
+# Heading Levels
 
 [![Build Status](https://travis-ci.org/mkdoc/mklevel.svg?v=3)](https://travis-ci.org/mkdoc/mklevel)
 [![npm version](http://img.shields.io/npm/v/mklevel.svg?v=3)](https://npmjs.org/package/mklevel)
