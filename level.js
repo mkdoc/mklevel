@@ -30,8 +30,8 @@ var through = require('through3')
  *  {levels: [1,1,1,1]}
  *  ```
  *
- *  To decrement all heading levels (except level 1 which cannot be decrements) 
- *  by one:
+ *  To decrement all heading levels (except level 1 which cannot be 
+ *  decremented):
  *
  *  ```javascript
  *  {all: -1}
