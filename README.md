@@ -20,6 +20,7 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
 
 - [Install](#install)
 - [Usage](#usage)
+- [Example](#example)
 - [Help](#help)
 - [API](#api)
    - [level](#level)
@@ -39,6 +40,32 @@ ast.src('# 1\n\n## 2\n\n### 3\n\n')
   .pipe(lvl({levels: [1, 2, -1, 0, 0, 0]}))
   .pipe(ast.stringify({indent: 2}))
   .pipe(process.stdout);
+```
+
+## Example
+
+Increment all heading levels:
+
+```shell
+mkcat README.md | mklevel --all=1 | mkout
+```
+
+Decrement all heading levels:
+
+```shell
+mkcat README.md | mklevel --all=-1 | mkout
+```
+
+Convert level 2 headings to level 5:
+
+```shell
+mkcat README.md | mklevel -2=3 | mkout
+```
+
+Convert level 1 and 3 headings to level 2:
+
+```shell
+mkcat README.md | mklevel -1=1 -3=-1 | mkout
 ```
 
 ## Help
