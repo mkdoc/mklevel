@@ -8,6 +8,8 @@
 
 Increases and decreases heading levels so the structure of a document may be modified.
 
+Useful when you have a standalone document that you wish to include in another document but the headings in the standalone document should be indented to fit the structure of the parent document.
+
 ## Install
 
 ```
@@ -164,7 +166,7 @@ MIT
 
 ---
 
-Created by [mkdoc](https://github.com/mkdoc/mkdoc) on March 26, 2016
+Created by [mkdoc](https://github.com/mkdoc/mkdoc) on March 27, 2016
 
 [mkdoc]: https://github.com/mkdoc/mkdoc
 [commonmark]: http://commonmark.org
